@@ -58,8 +58,9 @@ const Home: NextPage = () => {
           <SongCard song={songs[8]} top={9}/>
           <SongCard song={songs[9]} top={10}/>
           </Stack>
-
+          
         </Center>
+        <Text>Code aviable on <a href='https://github.com/victorioxd/top-songs'>GitHub</a></Text>
       </Container>
     </>
   )
