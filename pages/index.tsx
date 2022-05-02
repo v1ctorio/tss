@@ -1,6 +1,7 @@
 import { Title, Text, Container, Center, Stack } from '@mantine/core';
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react';
+import { BrandGithub } from 'tabler-icons-react';
 import SongCard from '../components/SongCard';
 import useStyles from '../styles/index.styles'
 const Home: NextPage = () => {
@@ -60,8 +61,9 @@ const Home: NextPage = () => {
           </Stack>
           
         </Center>
-        <Text>Code aviable on <a href='https://github.com/victorioxd/top-songs'>GitHub</a></Text>
       </Container>
+
+      <a href='https://github.com/victorioxd/top-songs' className='repolink'><BrandGithub /></a>
     </>
   )
 }
