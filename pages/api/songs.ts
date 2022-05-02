@@ -14,7 +14,8 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  //TODO: handle real API requests and avoid rate limits
+  const backup = require("../../data/backup/songs.json");
+
   function returnFetchData() {
     const rawData = axios({
       method: "get",
@@ -24,17 +25,19 @@ export default function handler(
       },
     });
 
-    rawData.then((data) => {
-      CacheData = {
-        timestamp: Date.now(),
-        data: { songs: data.data.tracks.items },
-      };
-      res.status(200).json({ songs: data.data.tracks.items });
-    });
+    rawData
+      .then((data) => {
+        CacheData = {
+          timestamp: Date.now(),
+          data: { songs: data.data.tracks.items },
+        };
+        res.status(200).json({ songs: data.data.tracks.items });
+      })
+      .catch((e) => {
+        res.status(200).json({ songs: backup.songs });
+      });
   }
   function returnFreezedData() {
-    const backup = require("../../data/backup/songs.json");
-
     res.status(200).json({ songs: backup.songs });
   }
   function returnCacheData() {
