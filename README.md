@@ -1,4 +1,4 @@
-# Top Songs
+# Top Spotify Songs
 
 A school assignment of a website that shows the top songs of all spotify.
 
