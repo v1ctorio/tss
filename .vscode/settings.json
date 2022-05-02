@@ -5,5 +5,6 @@
     "cSpell.enableFiletypes": [
         "!typescript",
         "!typescriptreact"
-    ]
+    ],
+    "editor.formatOnSave": true
 }
